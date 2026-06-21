@@ -18,7 +18,7 @@ jobs:
       - name: Install PyInstaller
         run: pip install pyinstaller
       - name: Build .exe
-        run: pyinstaller --onefile --windowed --name="Twitch" --hidden-import=browser_launcher twitch_app.py
+        run: pip install pillow; pyinstaller --onefile --windowed --icon=icon.ico --name="Twitch" --hidden-import=browser_launcher twitch_app.py
       - name: Prepare dist_py
         run: New-Item -ItemType Directory -Path dist_py -Force; Copy-Item dist/Twitch.exe dist_py/Twitch.exe
       - name: Install Inno Setup
